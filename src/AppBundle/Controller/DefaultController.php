@@ -13,9 +13,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+        $form = $this->createFormBuilder()->getForm();
+
+        return $this->render('AppBundle:edit.html.twig', [
+            'extend_template' => 'AppBundle:parent.html.twig',
+            'form'            => $form->createView(),
         ]);
     }
 }
